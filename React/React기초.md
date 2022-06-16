@@ -9,6 +9,6 @@
 2. Visual Studio Code를 열고 바탕화면에 react-app폴더를 만든다.
 3. 터미널을 열고 **npx create-react-app .** 을 입력한다.
 
-![react 설치] (./img/react 설치.PNG)
+![react 설치] (img/react 설치.PNG)
 
 
