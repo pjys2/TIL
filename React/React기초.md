@@ -6,3 +6,7 @@
 
 ## 실습환경 구축
 1. [node.js](https://nodejs.org/en/)를 설치한다.
+2. Visual Studio Code를 열고 바탕화면에 react-app폴더를 만든다.
+3. 터미널을 열고 **npx create-react-app .** 을 입력한다.
+
+
