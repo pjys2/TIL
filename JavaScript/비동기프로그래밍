@@ -1,0 +1,39 @@
+# 비동기 프로그래밍
+
+## Promise 방식
+* Promise방식은 자바스크립트 비동기 처리에 사용되는 객체이다
+* Promise는 비동기 작업이 성공하면 resolve()를 호출하고, 실패하면 reject()를 호출하도록 구현한다.
+* Promise 다음엔 then()과 catch()를 사용한다.
+* then()은 생성한 Promise 객체에서 인수로 전달한 resolve가 호출되면 실행된다.
+* catch()는 생성한 프로미스 객체에서 인수로 전달한 reject가 호출되면 실행된다.
+
+## Promise의 3가지 상태
+* promise의 상태란 promise의 처리 과정을 의미한다.
+* new Promise()로 프로미스를 생성하고 종료될 때까지 3가지 상태를 갖는다.
+    * Pending(대기) : 비동기 처리 로직이 아직 완료되지 않은 상태
+    * Fulfilled(이행) : 비동기 처리가 완료되어 프로미스가 결과 값을 반환해준 상태
+    * Rejected(실패) : 비동기 처리가 실패하거나 오류가 발생한 상태
+
+## Promise의 에러 처리 방법
+* then()의 handleError를 이용하는 방법
+* catch()를 이용하는 방법이 있다.
+* 에러 처리는 가급적 catch()를 이용하는 것이 효율적이다.
+
+
+## async & await방식
+* async & await는 비동기식 코드를 동기식으로 표현하여 간단하게 나타내는 것이다.
+* async & await는 Promise객체를 반환한다.(then을 사용할 수 있다.)
+
+## async & await 기본 문법
+1. async
+ * async는 function앞에 위치한다.
+ * function 앞에 async를 붙이면 해당 함수는 항상 promise를 반환한다.
+ * async 함수는 화살표 함수로도 정의가 가능하고, 함수 표현식으로도 정의가 가능하다.
+
+2. await
+ * await는 async함수 안에서만 동작한다.
+ * 자바스크립트는 await키워드를 만나면 promise가 처리될 때까지 기다리고, 결과는 그 이후 반환된다.
+
+## async & await 예외 처리
+* async & await에서 처리하는 방법은 try...catch...구문을 사용하는 것이다.
+* catch{}를 사용하면 된다. (promise에서는 .catch()사용)
