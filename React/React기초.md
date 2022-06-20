@@ -1,4 +1,5 @@
-# React기초
+# React기초  
+
 
 ## 목차
 
@@ -7,11 +8,12 @@
 3. [react 배포](#react-배포)
 4. [컴포넌트 만들기](#컴포넌트-만들기)
 5. [Props](#props)
+6. [이벤트](#이벤트)  
 
 
 ## React란?
 * 사용자 인터페이스를 만들기 위한 JavaScript 라이브러리다.
-* React의 핵심적인 역할은 사용자 정의 태그를 만드는 것이다.
+* React의 핵심적인 역할은 사용자 정의 태그를 만드는 것이다.  
 
 ## 실습환경 구축
 1. [node.js](https://nodejs.org/en/)를 설치한다.
@@ -20,7 +22,7 @@
 ![react설치](https://github.com/JaeyeongPark/TIL/blob/main/React/img/react%20%EC%84%A4%EC%B9%98.PNG))
 4. npm start를 입력하면 sample react 화면을 볼 수 있다.
 
-     ![sample react](https://github.com/JaeyeongPark/TIL/blob/main/React/img/sample%20react.PNG)
+     ![sample react](https://github.com/JaeyeongPark/TIL/blob/main/React/img/sample%20react.PNG)  
 
 
 ## react 폴더 구조
@@ -32,12 +34,12 @@
 
 * **/src/App.js**
 
-![app.js](https://github.com/JaeyeongPark/TIL/blob/main/React/img/appjs.PNG)
+![app.js](https://github.com/JaeyeongPark/TIL/blob/main/React/img/appjs.PNG)  
 
 
 ## react 배포
 * 터미널에 npm run build를 입력하면 build 폴더가 만들어진다.
-* npx serve -s build를 입력하면 사용자에게 index.html을 서비스해준다.
+* npx serve -s build를 입력하면 사용자에게 index.html을 서비스해준다.  
 
 ## 컴포넌트 만들기
 * 컴포넌트 만들기 전
@@ -47,7 +49,7 @@
 
 ![After](https://github.com/JaeyeongPark/TIL/blob/main/React/img/%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%20%EC%9E%91%EC%84%B1.PNG)
 
-* 컴포넌트를 만들때는 첫번째 글자를 대문자로 작성한다.
+* 컴포넌트를 만들때는 첫번째 글자를 대문자로 작성한다.  
 
 ## Props
 * react에서 속성을 prop이라고 한다.
@@ -70,10 +72,32 @@
 ![props-Nav](https://github.com/JaeyeongPark/TIL/blob/main/React/img/props-Nav.PNG)
 * props를  결과 화면
 
-![props-결과 화면](https://github.com/JaeyeongPark/TIL/blob/main/React/img/props-%EA%B2%B0%EA%B3%BC%ED%99%94%EB%A9%B4.PNG)
+![props-결과 화면](https://github.com/JaeyeongPark/TIL/blob/main/React/img/props-%EA%B2%B0%EA%B3%BC%ED%99%94%EB%A9%B4.PNG)  
 
 
-## 
+## 이벤트
+* 컴포넌트에서 이벤트를 발생시키려면 onChangeMode를 사용자정의 태그에 선언한다.
+
+![Header태그](https://github.com/JaeyeongPark/TIL/blob/main/React/img/Header%ED%83%9C%EA%B7%B8.PNG)
+
+* 컴포넌트에서 onClick이벤트를 발생시킨다.
+
+![Header온클릭](https://github.com/JaeyeongPark/TIL/blob/main/React/img/Header%EC%98%A8%ED%81%B4%EB%A6%AD.PNG)
+
+* WEB을 클릭했을 때 이벤트가 발생한다.
+
+![WEB을 클릭](https://github.com/JaeyeongPark/TIL/blob/main/React/img/WEB%EC%9D%84%20%ED%81%B4%EB%A6%AD%ED%96%88%EC%9D%84%20%EB%95%8C.PNG)
+
+* 컴포넌트의 id를 출력하고 싶으면 event.target.id를 사용한다.
+
+![Nav-a태그](https://github.com/JaeyeongPark/TIL/blob/main/React/img/a%ED%83%9C%EA%B7%B8%20id%EA%B0%92.PNG)
+
+* html을 클릭하면 id를 alert를 이용해 출력한다.
+
+![html클릭](https://github.com/JaeyeongPark/TIL/blob/main/React/img/html%EC%9D%84%20%ED%81%B4%EB%A6%AD%ED%96%88%EC%9D%84%20%EB%95%8C.PNG)  
+
+
+
 
 
 
