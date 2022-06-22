@@ -98,7 +98,22 @@
 
 
 ## State
+* state는 컴포넌트 렌더링 결과물에 영향을 주는 데이터를 갖고 있는 객체이다.
+* Props와 다른 점은 Props는 매개변수처럼 전달되는 반면 state는 컴포넌트 안에서 관리된다.
 
+## State 사용방법
+* state를 사용하기 위해서 useState를 import한다.
+
+![useState](https://github.com/JaeyeongPark/TIL/blob/main/React/img/useState.PNG)  
+*state를 선언하는 방법은 다음과 같다.
+
+![state선언](https://github.com/JaeyeongPark/TIL/blob/main/React/img/state%EC%84%A0%EC%96%B8.PNG)
+*이벤트가 발생할 때 state변수를 변경한다.
+
+![setMode](https://github.com/JaeyeongPark/TIL/blob/main/React/img/setState.PNG)
+* state를 이용해서 mode변수의 값이 바뀌면 사용자 태그를 변경하는 코드
+
+![state변경](https://github.com/JaeyeongPark/TIL/blob/main/React/img/state%EB%B3%80%EA%B2%BD.PNG)
 
 
 
