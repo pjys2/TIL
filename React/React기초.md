@@ -9,6 +9,7 @@
 4. [컴포넌트 만들기](#컴포넌트-만들기)
 5. [Props](#props)
 6. [이벤트](#이벤트)  
+7. [Create](#create)
 
 
 ## React란?
@@ -114,6 +115,27 @@
 * state를 이용해서 mode변수의 값이 바뀌면 사용자 태그를 변경하는 코드
 
 ![state변경](https://github.com/JaeyeongPark/TIL/blob/main/React/img/state%EB%B3%80%EA%B2%BD.PNG)
+
+## Create
+* Create태그를 만들기 위한 a태그를 선언한다.
+
+![a태그(create)](https://github.com/JaeyeongPark/TIL/blob/main/React/img/a%ED%83%9C%EA%B7%B8(Create).PNG)
+
+* Create 컴포넌트를 정의 한다.
+* form태그를 이용해 title, body의 데이터를 보내고 props를 사용하여 값을 전달한다.
+
+![Create컴포넌트선언](https://github.com/JaeyeongPark/TIL/blob/main/React/img/Create%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%84%A0%EC%96%B8.PNG)
+
+* newTopic에 새로운 객체를 받는다
+* newTopics에는 현재의 topics를 저장한다.
+* newTopics에 newTopic을 추가한다.
+* setTopics에 newTopics를 넣고 페이지를 새롭게 렌더링한다.
+
+![Create컴포넌트](https://github.com/JaeyeongPark/TIL/blob/main/React/img/Create%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8.PNG)
+
+* Create를 이용하여 새로운 링크를 만들고 내용을 출력할 수 있다.
+
+![Create결과화면](https://github.com/JaeyeongPark/TIL/blob/main/React/img/Create%EA%B2%B0%EA%B3%BC%ED%99%94%EB%A9%B4.PNG)
 
 
 
