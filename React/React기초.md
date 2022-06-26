@@ -10,6 +10,8 @@
 5. [Props](#props)
 6. [이벤트](#이벤트)  
 7. [Create](#create)
+8. [Update](#update)
+9. [Delete](#delete)
 
 
 ## React란?
@@ -139,10 +141,22 @@
 
 ## Update
 
+* Update는 Create와 대부분 유사하지만 title과 body를 state를 이용해서 관리하는 것이 중요하다.
+* state를 설정하지 않으면 기존의 값이 고정되어있어 변경할 수 없다.
+* 값이 변경되면 setTitle, setBody를 이용하고 onChange를 이용하여 이벤트를 발생시킨다.
 
+![Update컴포넌트](https://github.com/JaeyeongPark/TIL/blob/main/React/img/Update%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8.PNG)
 
+* Update 버튼을 클릭해서 mode가 Update로 바뀌면 현재 선택한 id와 일치하는 topics의 title과 body를 가져온다.
+* 기존 토픽에서 아이디가 같은 부분의 title과 body를 변경하고 setTopics를 이용해 수정한다.
 
+![Update로직](https://github.com/JaeyeongPark/TIL/blob/main/React/img/Update%EB%A1%9C%EC%A7%81.PNG)
 
+## Delete
+
+* Delete는 버튼을 클릭했을 때 해당 부분을 공백으로 만들어주면 쉽게 구현할 수 있다.
+
+![Delete](https://github.com/JaeyeongPark/TIL/blob/main/React/img/Delete.PNG)
 
 
 
