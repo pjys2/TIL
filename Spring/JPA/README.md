@@ -60,7 +60,40 @@ public interface CrudRepository<T, ID> extends Repository<T, ID> {
 6. 주어진 ID를 가진 엔티티가 있는지 여부를 나타냅니다.
 
 
+## 쿼리 방법
+1. 인터페이스에서 쿼리 메서드를 선언한다.
+```java
+interface PersonRepository extends Repository<Person, Long> {
+  List<Person> findByLastname(String lastname);
+}
+```
+2. JavaConfig 또는 XML구성을 사용하여 해당 인터페이스에 대한 프록시 인스턴스를 생성
+* Java설정은 다음과 유사한 클래스를 생성한다.
+```java
+interface PersonRepository extends Repository<Person, Long> {
+  List<Person> findByLastname(String lastname);
+}
+```
+* XML설정은 다음과 유사한 Bean을 정의한다.
+```java
+interface PersonRepository extends Repository<Person, Long> {
+  List<Person> findByLastname(String lastname);
+}
+```
+3. 다음 예와 같이 레포지토리 인스턴스를 주입하고 사용한다.
+```java
+class SomeClient {
 
+  private final PersonRepository repository;
 
+  SomeClient(PersonRepository repository) {
+    this.repository = repository;
+  }
+
+  void doSomething() {
+    List<Person> persons = repository.findByLastname("Matthews");
+  }
+}
+```
 
 
