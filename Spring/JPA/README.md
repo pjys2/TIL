@@ -33,4 +33,34 @@
 
 
 
+## CrudRepository 인터페이스
+```java
+public interface CrudRepository<T, ID> extends Repository<T, ID> {
+
+  <S extends T> S save(S entity);       // 1   
+
+  Optional<T> findById(ID primaryKey);  // 2
+
+  Iterable<T> findAll();                // 3         
+
+  long count();                         // 4                     
+
+  void delete(T entity);                // 5      
+
+  boolean existsById(ID primaryKey);    // 6      
+
+  // … more functionality omitted.
+}
+```
+1. 주어진 엔티티를 저장
+2. 지정된 ID로 식변되는 엔티티를 반환
+3. 모든 엔티티를 반환
+4. 엔티티 수를 반환
+5. 지정된 엔티티를 삭제
+6. 주어진 ID를 가진 엔티티가 있는지 여부를 나타냅니다.
+
+
+
+
+
 
