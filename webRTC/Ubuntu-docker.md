@@ -3,7 +3,7 @@
 이 글은 윈도우 운영체제에서 우분투를 설치해서 도커를 설치하는 방법을 다룬다.
 
 ## Ubuntu설치하기
-![우분투 설치](D:\TIL\2-til\박재영\img\우분투설치.PNG)
+![우분투 설치](https://github.com/JaeyeongPark/TIL/blob/main/webRTC/img/%EC%9A%B0%EB%B6%84%ED%88%AC%EC%84%A4%EC%B9%98.PNG)
 * Microsoft Store에서 우분투를 설치한다.
 
 ## Docker 설치
@@ -45,7 +45,7 @@ $ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plug
 ```
 
 * 다음과 같은 문제 발생 시 [참고](https://boying-blog.tistory.com/82)
-* ![도커엔진설치에러]()
+* ![도커엔진설치에러](https://github.com/JaeyeongPark/TIL/blob/main/webRTC/img/%EB%8F%84%EC%BB%A4%EC%97%94%EC%A7%84%20%EC%84%A4%EC%B9%98%EC%97%90%EB%9F%AC.PNG)
 
 
 
@@ -64,5 +64,5 @@ $ sudo docker run hello-world
 ```
 
 * 다음과 같은 문제 발생 시 [참고](https://velog.io/@pop8682/Docker-Cannot-connect-to-the-Docker-daemon-at-unixvarrundocker.sock.-Is-the-docker-daemon-running-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0)
-* ![docker-ce 설치에러]()
+* ![docker-ce 설치에러](https://github.com/JaeyeongPark/TIL/blob/main/webRTC/img/docker-ce%EC%84%A4%EC%B9%98%EC%97%90%EB%9F%AC.PNG)
 
