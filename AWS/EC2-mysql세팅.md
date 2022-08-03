@@ -35,8 +35,10 @@ FLUSH PRIVILEGES;
 3. 패스워드 변경
 ```sql
 ALTER USER 'user'@'localhost' IDENTIFIED BY '변경할 패스워드'
+SELECT user,host,authentication_string FROM user;
 ```
 ![변경한 패스워드](https://github.com/JaeyeongPark/TIL/blob/main/AWS/Mysql/img/root%ED%8C%A8%EC%8A%A4%EC%9B%8C%EB%93%9C%20%EC%83%81%ED%83%9C.PNG)
+
 
 
 ## Mysql 워크벤치로 
