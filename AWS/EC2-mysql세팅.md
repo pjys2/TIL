@@ -41,4 +41,13 @@ SELECT user,host,authentication_string FROM user;
 
 
 
-## Mysql 워크벤치로 
+## Mysql워크벤치에 EC2 Mysql 연결하기 
+* Mysql 워크벤치
+![Mysql 워크벤치](https://github.com/JaeyeongPark/TIL/blob/main/AWS/Mysql/img/%EC%9B%8C%ED%81%AC%EB%B2%A4%EC%B9%98.PNG)
+* Public IP를 입력하고 접속할 계정과 패스워드를 입력하고 ok를 누른다.
+![Mysql 연결](https://github.com/JaeyeongPark/TIL/blob/main/AWS/Mysql/img/%EC%9B%8C%ED%81%AC%EB%B2%A4%EC%B9%98%20%EC%97%B0%EA%B2%B0.PNG)
+
+* EC2 Public IP 찾는 명령어
+```
+sudo curl ifconfig.me
+```
