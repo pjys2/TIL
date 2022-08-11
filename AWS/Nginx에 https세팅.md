@@ -2,5 +2,5 @@
 
 ## conf파일 설정
 ```
-cd /etc/nginx/sites-availables/default
+vi /etc/nginx/sites-availables/default
 ```
