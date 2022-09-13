@@ -15,7 +15,7 @@ sudo apt-get install mysql-server
 ```
 sudo mysql -u root -p
 ```
-![mysql로그인](https://github.com/JaeyeongPark/TIL/blob/main/AWS/Mysql/img/sudo%20mysql.PNG)
+![mysql로그인](https://github.com/JaeyeongPark/TIL/blob/main/AWS/img/%ED%8C%A8%EC%8A%A4%EC%9B%8C%EB%93%9C%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%B4%EC%84%9C%20%EB%A1%9C%EA%B7%B8%EC%9D%B8.PNG)
 
 ## Mysql 패스워드 변경
 1. 먼저 user테이블의 plugin을 확인한다.
@@ -30,22 +30,22 @@ SELECT user, host, plugin FROM mysql.user;
 UPDATE mysql.user SET plugin='caching_sha2_password' WHERE user='root';
 FLUSH PRIVILEGES;
 ```
-![plugin 변경](https://github.com/JaeyeongPark/TIL/blob/main/AWS/Mysql/img/plugin%EB%B3%80%EA%B2%BD.PNG)
+![plugin 변경](https://github.com/JaeyeongPark/TIL/blob/main/AWS/img/plugin%EB%B3%80%EA%B2%BD.PNG)
 
 3. 패스워드 변경
 ```sql
 ALTER USER 'user'@'localhost' IDENTIFIED BY '변경할 패스워드'
 SELECT user,host,authentication_string FROM user;
 ```
-![변경한 패스워드](https://github.com/JaeyeongPark/TIL/blob/main/AWS/Mysql/img/root%ED%8C%A8%EC%8A%A4%EC%9B%8C%EB%93%9C%20%EC%83%81%ED%83%9C.PNG)
+![변경한 패스워드](https://github.com/JaeyeongPark/TIL/blob/main/AWS/img/root%ED%8C%A8%EC%8A%A4%EC%9B%8C%EB%93%9C%20%EC%83%81%ED%83%9C.PNG)
 
 
 
 ## Mysql워크벤치에 EC2 Mysql 연결하기 
 * Mysql 워크벤치
-![Mysql 워크벤치](https://github.com/JaeyeongPark/TIL/blob/main/AWS/Mysql/img/%EC%9B%8C%ED%81%AC%EB%B2%A4%EC%B9%98.PNG)
+![Mysql 워크벤치](https://github.com/JaeyeongPark/TIL/blob/main/AWS/img/%EC%9B%8C%ED%81%AC%EB%B2%A4%EC%B9%98.PNG)
 * Public IP를 입력하고 접속할 계정과 패스워드를 입력하고 ok를 누른다.
-![Mysql 연결](https://github.com/JaeyeongPark/TIL/blob/main/AWS/Mysql/img/%EC%9B%8C%ED%81%AC%EB%B2%A4%EC%B9%98%20%EC%97%B0%EA%B2%B0.PNG)
+![Mysql 연결](https://github.com/JaeyeongPark/TIL/blob/main/AWS/img/%EC%9B%8C%ED%81%AC%EB%B2%A4%EC%B9%98%20%EC%97%B0%EA%B2%B0.PNG)
 
 * EC2 Public IP 찾는 명령어
 ```
