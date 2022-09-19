@@ -35,5 +35,22 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
 
+### 도커 테스트
+```
+sudo docker pull hello-world
+```
+![pull hello-world]()
+```
+sudo docker run hello-world
+```
+![run hello-world]()
+
+* 도커 작동 상태 확인
+```
+sudo docker ps -a
+```
+* 도커 테스트
+
+
 
 [우분투 도커 설치 공식문서](https://docs.docker.com/engine/install/ubuntu/)
