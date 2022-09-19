@@ -1,6 +1,7 @@
 # Docker를 활용한 배포
 
-## Docker 설치
+## Docker 설치 방법
+### 저장소 설정
 1. Update the apt package index and install packages to allow apt to use a repository over HTTPS:
 ```
 sudo apt-get update
@@ -28,6 +29,11 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
+### 도커 엔진 설치
+```
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+```
 
 
 [우분투 도커 설치 공식문서](https://docs.docker.com/engine/install/ubuntu/)
