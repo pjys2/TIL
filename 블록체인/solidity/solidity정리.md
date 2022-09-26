@@ -116,6 +116,62 @@ contract example{
 ```
 
 ## instance
+* 서로 다른 컨트랙트를 연결하기 위해 사용함
+* 컨트랙트 예제
+```
+contract A{
+  uint256 public a = 5;
+  
+  function change(uint256 _value) public{
+    a = _value;
+  }
+}
+
+contract B{
+  A instance = new A();
+  //A컨트랙트의 a변수를 읽음
+  function get_A() public view returns(uint256){
+    return instance.a();
+  }
+  //A컨트랙트의 a변수에 _value값을 입력
+  function change A(uint256 _value) public{
+    instance.change(_value);
+  }
+}
+```
+
+## constructor
+* 컨트랙트를 인스턴스로 만들 때 값을 초기화하는 역할을 함
+* 컨트랙트 예제
+```
+contract A{
+  string public name;
+  uint256 public age;
+  
+  constructor(string memory _name, uint256 _age){
+    name = _name;
+    age = _age;
+  }
+  function change(string memory _name, uint256 _age) public {
+    name = _name;
+    age = _age;
+  }
+}
+
+contract B{
+  A instance = new A("Alice", 52);
+  
+  function change(string memory _name, uint256 _age) public{
+    instance.change(_name, _age);
+  }
+  
+  function get() public view returns(string memory, uint256){
+    return (instance.name(),instance.age());
+  }
+}
+```
+
+## 상속
 
 
 
