@@ -37,5 +37,31 @@ uint 256 public a=5;
 uint 256 public a=5;
 ```
 
+* 컨트랙트 예제
+```solidity
+contract Public_example{
+  uint256 public a = 3;
+  function changeA(uint256 _value) public{
+    a = _value;
+  }
+  
+  function get_a() view public returns(uint256){
+    return a;
+  }
+}
+
+contract Public_example_2{
+  Public_example instance = new Public_example();
+  
+  function changeA_2(uint256 _value) public{
+    instance.changeA(_value);
+  }
+  
+  function use_pulbic_example_a() view public returns(uint256){
+    return instance.get_a();
+  }
+}
+```
+
 
 [solidity강좌](https://www.youtube.com/channel/UCuTGg-K1DY9cl8YtBKbQR9A)
