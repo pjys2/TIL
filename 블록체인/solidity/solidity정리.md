@@ -148,10 +148,12 @@ contract A{
   string public name;
   uint256 public age;
   
+  //생성자 정의
   constructor(string memory _name, uint256 _age){
     name = _name;
     age = _age;
   }
+  //name,age변경 함수
   function change(string memory _name, uint256 _age) public {
     name = _name;
     age = _age;
@@ -160,11 +162,11 @@ contract A{
 
 contract B{
   A instance = new A("Alice", 52);
-  
+  //위에 생성한 인스턴스에 접근해서 값을 바꾸는 함수
   function change(string memory _name, uint256 _age) public{
     instance.change(_name, _age);
   }
-  
+  //생성한 인스턴스의 값을 호출하는 함수
   function get() public view returns(string memory, uint256){
     return (instance.name(),instance.age());
   }
@@ -172,6 +174,36 @@ contract B{
 ```
 
 ## 상속
+* 컨트랙트 예제
+```solidity
+//부모 컨트랙트
+contract Father{
+  string public familyName = "Kim";
+  string public givenName = "Jung";
+  uint256 public money = 100;
+  
+  constructor(string memory _givenName) public{
+    givenName = _givenName;
+  }
+  
+  function getFamilyName() view public returns(string memory){
+    return familyName;
+  }
+  
+  function getGivenName() view public returns(string memory){
+    return givenName;
+  }
+  
+  function getMoney() view public returns(uint256){
+    return money;
+  }
+}
+
+//자식 컨트랙트 is Father를 통해 상속
+contract Son is Father("James"){
+  //("James")를 통해 상속과 통시에 construct가 적용됨
+}
+```
 
 
 
