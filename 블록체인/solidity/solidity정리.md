@@ -204,7 +204,49 @@ contract Son is Father("James"){
   //("James")를 통해 상속과 통시에 construct가 적용됨
 }
 ```
+## 오버라이딩 Overriding
+* 상속을 받고 함수를 다시 선언하는것
+* 컨트랙트 예제
+```solidity
+contract Father{
+  string public familyName = "Kim";
+  string public givenName = "Jung";
+  uint256 public money = 100;
+  
+  constructor(string memory _givenName) public{
+    givenName = _givenName;
+  }
+  
+  function getFamilyName() view public returns(string memory){
+    return familyName;
+  }
+  
+  function getGivenName() view public returns(string memory){
+    return givenName;
+  }
+  
+  function getMoney() view virtual public returns(uint256){
+  //virtual이 자식 컨트랙트에서 오버라이딩이 가능하게 함
+    return money;
+  }
+}
 
-
+contract Son is Father("James"){
+  //constructor() Father("James"){
+  //}
+  //constructor 오버라이딩 가능
+  
+  uint256 public earning = 0;
+  
+  function work() public {
+    earning += 100;
+  }
+  
+  //virtual이 자식 컨트랙트에서 override를 통해 오버라이딩을 함
+  function getMoney() view override public returns(uint256){
+    return money;
+  }
+}
+```
 
 [solidity강좌](https://www.youtube.com/channel/UCuTGg-K1DY9cl8YtBKbQR9A)
