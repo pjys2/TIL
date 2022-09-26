@@ -1,5 +1,10 @@
 # solidity정리
 
+## 데이터 타입
+* data type : boolean, bytes, address, uint
+* reference type : string, Arrays, struct
+* mapping type
+
 ## 함수의 종류
 1. Parameter와 Return 값이 없는 function 정의
 ```solidity
@@ -90,6 +95,28 @@ contract example{
   }
 }
 ```
+
+## 4개의 저장영역과 String
+* storage : 대부분의 변수, 함수들이 저장되며, 영속적으로 저장이되어 가스 비용이 비싸다.
+* memory : 함수의 파라미터, 리턴값, 레퍼런스 타입이 주로 저장된다.
+* colldata : 주로 external function의 파라미터에서 사용된다.
+* stack : EVM(Ethereum Virtual Machine)에서 stack data를 관리할 때 쓰는 영역으로 1024Mb 제한적이다.
+* 컨트랙트 예제
+```solidity
+contract example{
+  function get_string(string memory_str) public pure returns(string memory){
+    return _str;
+  }
+  
+  //uint같은 datatype에서는 memory가 default임.
+  function get_uint(uint256 _ui) public pure returns(uint256 memory){
+    return _ui;
+  }
+}
+```
+
+## instance
+
 
 
 [solidity강좌](https://www.youtube.com/channel/UCuTGg-K1DY9cl8YtBKbQR9A)
