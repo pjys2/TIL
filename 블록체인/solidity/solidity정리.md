@@ -22,9 +22,20 @@ function changeA3(uint256 _value) public returns(uint256){
 ```
 
 ## 접근제어자
-* public, private, internal, external
 
 * public : 모든 곳에서 접근가능
 * external : public처럼 모든곳에서 접근 가능하나, external이 정의된 자기자신 컨트랙 내에서 접근 불가
 * private : 오직 private이 정의된 자기 컨트랙에서만 가능(private이 정의된 컨트랙을 상속 받은 자식도 불가능)
 * internal : private처럼 오직 internal이 정의된 자기 컨트랙에서만 가능하고, internal이 정의된 컨트랙을 상속
+
+1. public 예시 (배포를 했을 때 외부에서 접근가능)
+```solidity
+uint 256 public a=5;
+```
+2. private 예시 (배포를 했을 때 외부에서 접근불가능)
+```solidity
+uint 256 public a=5;
+```
+
+
+[solidity강좌](https://www.youtube.com/channel/UCuTGg-K1DY9cl8YtBKbQR9A)
