@@ -249,4 +249,34 @@ contract Son is Father("James"){
 }
 ```
 
+## 두개 이상 상속
+* 컨트랙트 예제
+```solidity
+contract Father{
+  uint256 public fatherMoney = 100;
+  function getFatherName() public pure returns(string memory){
+    return "KimJung";
+  }
+  function getMoney() public view virtual returns(uint256){
+    return fatherMoney;
+  }
+}
+contract Mother{
+  uint256 public motherMoney = 500;
+  function getMotherName() public pure returns(string memory){
+    return "Leesol";
+  }
+  function getMoney() public view virtual returns(uint256){
+    return motherMoney;
+  }
+}
+contract Son is Father, Mother{
+//Mother와 Father의 getMoney가 겹치기 때문에 오버라이딩 해야함.
+  function getMoney() public view override(Father, Mother) returns(uint256){
+    //두개의 컨트랙트에서 상속받기 때문에 override(Father, Mother)를 넣어줘야함
+    return fatherMoney+motherMoney;
+  }
+}
+```
+
 [solidity강좌](https://www.youtube.com/channel/UCuTGg-K1DY9cl8YtBKbQR9A)
