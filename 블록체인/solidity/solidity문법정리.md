@@ -326,4 +326,49 @@ web3js를 통해 값을 불러옴
   }
 ```
 
+## super
+* 함수를 오버라이딩할 때 사용하는것
+* 컨트랙트 예제
+```solidity
+contract Father{
+  event FatherName(string name);
+  function who() public virtual{
+    emit FatherName("KimDaeho");
+  }
+}
+
+contract Son is Father{
+  event sonName(string name);
+  function who() public override{
+    super.who(); //부모 컨트랙트의 who를 그대로 가져옴
+    emit sonName("KimJin");
+  }
+}
+```
+
+## 상속의 순서
+* 컨트랙트 예제
+```solidity
+contract Father{
+  event FatherName(string name);
+  function who() public virtual{
+    emit FatherName("KimDaeho");
+  }
+}
+
+contract Mother{
+  event MotherName(string name);
+  function who() public virtual{
+    emit MotherName("leeSol");
+  }
+}
+contract Son is Father, Mother{
+  function who() public override(Father, Mother){
+    super.who(); 
+    //두개의 컨트랙트를 상속받고 있을 때 MotherName을 가져옴(가장 최근에 상속받았기 때문에)
+    //Mother와 Father의 순서를 바꾸면 FatherName이 
+  }
+}
+```
+
 [solidity강좌](https://www.youtube.com/channel/UCuTGg-K1DY9cl8YtBKbQR9A)
