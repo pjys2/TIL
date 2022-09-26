@@ -279,4 +279,21 @@ contract Son is Father, Mother{
 }
 ```
 
+## event
+* print가 없기 때문에 event를 통해 값을 출력할 수 있음
+* event로 값을 출력할 때 블록안에 저장됨
+* 컨트랙트 예제
+```solidity
+contract{
+  event info(string name, uint256 money);
+  
+  function sendMoney() public{
+    emit info("KimDaeJin", 1000);
+    //보내는 사람, 보내는 금액을 저장함
+    //호출되면 블록체인의 블록에 저장이 됨.
+  }
+}
+```
+* logs의 info와 데이터가 들어간 것을 볼 수 있음
+
 [solidity강좌](https://www.youtube.com/channel/UCuTGg-K1DY9cl8YtBKbQR9A)
