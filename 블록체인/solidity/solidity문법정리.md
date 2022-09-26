@@ -296,4 +296,34 @@ contract{
 ```
 * logs의 info와 데이터가 들어간 것을 볼 수 있음
 
+## index
+* event내에서 사용할 수 있는 키워드
+* 특정한 event의 값을 들고 올 때 사용됨
+* 컨트랙트 예제
+```solidity
+ event numberTracker(uint256 num, string str);
+ event numberTracker2(uint256 indexed num, string str);
+ //num을 통해 특정 이벤트를 가져올 수 있음
+ //10개의 이벤트가 있고 5번째의 이벤트가 필요할 때 해당 이벤트를 가져올 수 있음
+ 
+ uint256 num = 0;
+ function PushEvent(string memory _str) public {
+  emit numberTracker(num_str);
+  emit numberTracker2(num,_str);
+  num++;
+ }
+```
+web3js를 통해 값을 불러옴
+```javascript
+  sync function getEvent(){
+    let events = await lecture14.getPastEvents('numberTracker2',{filter:{num:[2,1]},fromBlock:1,toBlock:'latest'}).log(events)
+    //numberTracker : event이름
+    //filter : indexed를 적용한 num을 통해 블록을 가져옴
+    //fromBlock, toBlock 블록 첫번째부터 마지막까지 탐색
+    
+    let events = await lecture14.getPastEvents('numberTracker',{filter:{num:[2,1]},fromBlock:1,toBlock:'latest'}).log(events)
+    //index를 안써줬기 때문에 모든 값이 출력됨
+  }
+```
+
 [solidity강좌](https://www.youtube.com/channel/UCuTGg-K1DY9cl8YtBKbQR9A)
