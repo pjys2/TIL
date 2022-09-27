@@ -415,6 +415,8 @@ contract example{
   uint256[] public ageArray;
   //사이즈 10개 제한
   uint256[10] public ageFixedSizeArray;
+  //배열값 미리 정의
+  string[] public nameArray = ["Kal","Jhon","Kerri"];
   
   function AgeLength() public view returns(uint256){
     return ageArray.length; 
@@ -446,6 +448,109 @@ contract example{
 }  
 ```
 
+## Mapping과 Array주의할 점
+* 받은 값이 이후에 변경되어도 업데이트를 해서 적용을 해줘야함
+* 컨트랙트 예제
+```solidity
+contract example{
+  uint256 num = 89;
+  mapping(uint256 => uint256) numMap;
+  uint256[] numArray;
+  
+  function changeNum(uint256 _num) public{
+    num = _num;
+  }
+  
+  function showNum() public view returns(uint256){
+    return num;
+  }
+  
+  function numMapAdd() public{
+    numMap[0] = num;
+  }
+  
+  function showNumMap() public view returns(uint256){
+    return numMap[0];
+  }
+  
+  function numArrayAdd() public{
+    numArray.push(num);
+  }
+  
+  function showNumArray() public view returns(uint256){
+    return numArray[0];
+  }
+}
+```
+
+## struct
+* 컨트랙트 예제
+```solidity
+contract example{
+  struct Character{
+    uint256 age;
+    string name;
+    string job;
+  }
+  
+  mapping(uint256=>Character) public CharacterMapping;
+  Character[] public CharacterArray;
+  
+  function createCharacter(uint256 _age, string memory _name, string memory _job) pure public returns(Character memory){
+    return Character(_age,_name,_job);
+  }
+  
+  //CharaterArray를 다루기 위한 함수
+  function createCharacterMapping(uint256 _key, uint256 _age, string memory _name, string memory _job) public {
+    CharacterMapping[_key] = Character(_age,_name,_job);
+  }
+  function getCharacterMapping(uint256 _key) public view returns(Character memory) {
+    return CharacterMapping[_key];
+  }
+  function createCharacterArray(uint256 _key, uint256 _age, string memory _name, string memory _job) public {
+    CharacterArray.push(Character(_age, _name, _job));
+  }
+  function getCharacterArray(uint256 _index) public view returns(Character memory){
+    return CharacterMapping[_index];
+  }
+  
+}
+```
+
+## if 조건문
+* case1 : if-else
+* case2 : if-else if-else
+* 컨트랙트 예제
+```solidity
+contract example{
+  string private outcome = "";
+  function isIt5(uint256 _number) public returns(string memory){
+    if(_number == 5){
+      outcome = "Yes, it is 5";
+      return outcome;
+    }else{
+      outcome = "No, it is not 5";
+      return outcome;
+    }
+  }
+  
+  function isIt5or3or1(uint256 _number) public returns(string memory){
+    if(_number == 5){
+      outcome = "Yes, it is 5";
+      return outcome;
+    }else if(number == 3){
+      outcome = "Yes, it is 3";
+      return outcome;
+    }else if(number == 1){
+      outcome = "Yes, it is 1";
+      return outcome;
+    }else{
+      outcome = "No, it is not 5,3,1";
+      return outcome;
+    }
+  }
+}
+```
 
 
 [solidity강좌](https://www.youtube.com/channel/UCuTGg-K1DY9cl8YtBKbQR9A)
