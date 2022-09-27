@@ -617,6 +617,118 @@ contract example{
 ```
 
 
-## 
+## 에러핸들러
+* 에러핸들러 : require, revert, assert, try/catch
+* 0.4.22 ~ 0.7.x    
+* assert : gas를 다 소비한 후, 특정한 조건에 부합하지 않으면 (false일 때)에러를 발생시킨다.
+* revert : 조건없이 에러를 발생시키고, gas를 환불 시켜준다.
+* require : 특정한 조건에 부합하지 않으면(false일 때) 에러를 발생시키고, gas를 환불 시켜준다.
+* 컨트랙트 예제
+```solidity
+contract example{
+  //3000000gas  가스를 소비하고 반환은 안해줌
+  function assertNow() public pure{
+    assert(false);
+  }
+  //21322gas 소모한 gas를 제외하고 반환해줌
+  function revertNow() public pure{
+    revert("error!!");  //조건이 없기 때문에 //if를 써서 사용하거나 require를 사용함
+  }
+  //21338gas   require = if+revert
+  function requireNow() public pure{
+    require(false, "occurred");
+  }
+  
+  function onlyAdults(uint256 _age) public pure returns(string memory){
+    if(_age < 19){
+      revert("You are not allowed to pay for the cigarette");
+    }
+    return "Your payment is scceeded";
+  }
+  
+  function onlyAdults2(uint256 _age) public pure returns(string memory){
+    require(_age>19,"You are not allowed to pay for the cigarette");
+    return "Your payment is scceeded";
+  }
+  
+}
+```
 
+* 0.8.1 ~
+* assert : 오직 내부적 에러 테스트 용도, 불변성 체크 용도.
+* assert가 에러를 발생시키면 panic(uint256)이라는 에러타입의 에러 발생
+* assert에러는 0으로 나눈경우, empty array에서 pop을 한 경우 등 발생한다.
+* 컨트랙트 예제
+```solidity
+contract example{
+  //0.8 이상에서는 gas를 환불해줌
+  function assertNow() public pure{
+    assert(false);
+  }
+  
+  function revertNow() public pure{
+    revert("error!!");  //조건이 없기 때문에 //if를 써서 사용하거나 require를 사용함
+  }
+  
+  function requireNow() public pure{
+    require(false, "occurred");
+  }
+}
+```
+
+*try/catch
+* 0.6버전 이후
+* 기존의 에러 핸들러 assert/revert/require는 에러를 발생시키고 프로그램을 끝냄
+* try/catch를 사용하면 에러가 나도 프로그램을 종료시키지 않고 대처를 하게 만들 수 있다.
+
+
+* tyr/cath특징
+1. try/catch문 안에서 assert/revert/require을 통해 에러가 난다면 catch는 에러를 잡지 못하고, 개발자가 의도한지 알고 정상적으로 프로그램을 끝낸다.
+2. 3가지 catch (catch Error, catch Panic, catch)
+3. 쓰는 곳 
+  * 외부 스마트 컨트랙을 함수로 부를 때 : 다른 스마트 컨트랙을 인스턴스화해서, try/catch문이 있는 스마트 컨트랙트에 사용
+  * 외부 스마트 컨트랙을 생성 할 때 : 다른 스마트컨트랙을 인스턴스화 생성 할 때 씀
+
+
+
+## modifier
+* revert나 require를 넣어서 사용함
+* 컨트랙트 예제
+```solidity
+contract example{
+  modifier onlyAdults{
+    revert("You are not allowed to pay for the cigarette");
+    _; //함수가 적용되는 자리
+  }
+  
+  function BuyCigarette() public onlyAdults returns(string memory){
+    return "Your payment is succeeded";
+  }
+  
+  modifier onlyAdults2(uint256 _age){
+    require(_age>18,"You are not allowed to pay for the cigarette");
+  }
+  
+  function BuyCigarette2(uint256 _age) public onlyAdults2(_age) returns(string memory){
+    return "Your payment is succeeded";
+  }
+  
+}
+```
+
+
+## SPDX 라이센스/주석
+* SPDX-License_identifier의 목적
+1. 라이센스를 명시해줌으로써 스마트컨트랙에 대한 신뢰감을 높일 수 있음
+2. 스마트 컨트랙 소스코드가 워낙 오픈되어 있으니, 저작권과 같은 관련된 문제를 해소
+
+* 주석
+1. 블록단위 : 보통 블록단위의 주석은 스마트컨트랙, 함수 등 많은 양의 설명
+2. 행단위 : 행단위는 변수 바로 옆에 쓰여서 짤막짤막한 설명 
+
+
+
+
+
+---------------------------------
 [solidity강좌](https://www.youtube.com/channel/UCuTGg-K1DY9cl8YtBKbQR9A)
