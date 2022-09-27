@@ -1153,6 +1153,58 @@ contract example{
 
   
 ## import
+  
+<details>
+  
+```
+library SafeMath{
+  function add(uint8 a, uint8 b) internal pure returns(uint8){
+    //a:1 b:255 -> a+b=256 -> 오버플로우로 0이됨 < a
+    require(a+b >= a, "SafeMath: addition overflow");
+    return a+b;
+  }  
+}
+
+contract HiSolidity{
+  event Hi(string _str);
+  
+  function hi() public{
+    emit Hi("Hello solidity");
+  }
+}
+```
+  
+```
+//SPDX-License-Identifier: GPL-3.0
+  pragma solidity >=0.7.0 < 0.9.0;
+  import "./HiSolidity.sol"
+    
+  contract example is HiSolidity{
+    using SafeMath0 for uint8;
+    uint8 public a;
+    function becomeOverflow(uint8 _num1, uint8 _num2) public{
+      a = _num1.add(_num2);
+    }
+  }                           
+```
+                                  
+
+```
+//SPDX-License-Identifier: GPL-3.0
+  pragma solidity >=0.6.0 < 0.8.0;
+  import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/docs-v3.x/contracts/math/SafeMath.sol"
+    
+  contract example is HiSolidity{
+    using SafeMath for uint256;
+    uint256 public a;
+    uint256 public maximum = ~uint256(0); // ==2**256-1; // 2**256 == 2^256
+    function becomeOverflow(uint256 _num1, uint256 _num2) public {
+        a = _num1.add(_num2);
+    }
+  }                           
+```
+  
+</details>
 
 ---------------------------------
-[solidity강좌](https://www.youtube.com/channel/UCuTGg-K1DY9cl8YtBKbQR9A)
+[출처 : solidity강좌](https://www.youtube.com/channel/UCuTGg-K1DY9cl8YtBKbQR9A)
