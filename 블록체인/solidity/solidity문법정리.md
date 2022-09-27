@@ -551,6 +551,72 @@ contract example{
   }
 }
 ```
+## 반복문
+```
+for(초기값; 값이 얼마나 forloop을 돌아야하는지; forloop 한번 돌때마다 값의 변화;){
+  forloop내용
+}
 
+while(값이 얼마나 whileloop을 돌아야하는지){
+whileloop내용
+whileloop 한번 돌때마다 값의 변화;
+}
+
+do{
+  dowhileloop 내용
+}while(값이 얼마나 do-while loop을 돌아야하는지
+```
+* 컨트랙트 예제
+```solidity
+contract example{
+  event CountryIndexName(uint256 indexed _index, string _name);
+  string[] private countryList = ["South Korea","North Korea","USA", "china","Japan"];
+  
+  function forLoopEvents() public{
+    for(uint256 i=0; i<countryList.length; i++){
+      emit CountryIndexName(i,countryList[i]);
+    }
+  }
+  
+  function whileLoopEvents() public {
+    uint256 i=0;
+    while(i<countryList.length){
+      emit CountryIndexName(i,countryList[i]);
+      i++;
+    }
+  }
+  
+  function doWhileLoopEvents() public {
+    uint256 i=0;
+    do{
+      emit CountryIndexName(i,countryList[i]);
+      i++;
+    }while(i<countryList.length);
+  }
+}
+```
+
+
+## Linear Search
+* 배열을 
+* 컨트랙트 예제
+```solidity
+contract example{
+  event CountryIndexName(uint256 indexed _index, string _name);
+  string[] private countryList = ["South Korea", "North Korea","USA", "China","Japan"];
+  
+  function linearSearch(string memory _search) public view returns(uint256, string memory){
+    for(uint256 i=0; i<countryList.length;i++){
+      //solidity에는 문자열을 비교하는 기능이 없음 그래서 hash값으로 변환해서 비교해야함
+      if(keccak256(bytes(countryList[i])) == keccak256(bytes(_search))){
+        return (i,countryList[i]);
+      }
+    }
+    return (0,"Nothing");
+}
+```
+
+
+## 
 
 [solidity강좌](https://www.youtube.com/channel/UCuTGg-K1DY9cl8YtBKbQR9A)
