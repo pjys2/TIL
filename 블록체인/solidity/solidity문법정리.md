@@ -371,4 +371,81 @@ contract Son is Father, Mother{
 }
 ```
 
+## Mapping(맵핑)
+* 특정 키값을 정의하고 키값에 대응되는 값을 반환받도록 하는것
+* 컨트랙트 예제
+```solidity
+contract example{
+
+  mapping(uint256=>uint256) private ageList;
+  mappint(string=>uint256) private priceList;
+  mapping(uint256=>string) private nameList;
+
+  function setAgeList(uint256 _index, uint256 _age) public{
+    ageList[_index] = _age;
+  }
+  
+  function getAge(uint256 _index) pulbic view returns(uint256){
+    return ageList[_index];
+  }
+  
+  function setNameList(uint256 _index, string memory _name) public{
+    nameList[_index] = _name;
+  }
+  
+  function getName(uint256 _index) public view returns(string memory){
+    return nameList[_index];
+  }
+  
+  function setPriceList(string memory _itemName, uint256 _price) public{
+    priceList[_itemName] = _price;
+  }
+  
+  function getPriceList(string memory _index) public view returns(uint256){
+    return priceList[_index];
+  }
+}
+```
+
+## 배열
+* 컨트랙트 예제
+```solidity
+contract example{
+  //사이즈 제한없음
+  uint256[] public ageArray;
+  //사이즈 10개 제한
+  uint256[10] public ageFixedSizeArray;
+  
+  function AgeLength() public view returns(uint256){
+    return ageArray.length; 
+  }
+  //0->50 / 1 -> 70 / length : 2
+  function AgePush(uint256 _age)public{
+    ageArray.push(_age);
+  }
+  
+  //1 -> 70
+  function AgeGet(uint256 _index)public view returns(uint256){
+    return ageArray[_index];
+  }
+  
+  //0->50 / length : 1      (가장 최근의 값을 삭제함)
+  function AgePop()public {
+    ageArray.pop();
+  }
+  
+  //0->0 / 1 -> 70 / length : 2 (인덱스로 원하는 값 삭제함)
+  function AgePop(uint256 _index)public {
+    delete ageArray[_index];
+  }
+  
+  //0->90 / 1 -> 70 / length : 2 (인덱스로 원하는 값 변경 없는 인덱스를 선택하면 에러)
+  function AgeChange(uint256 _index, uint256 _age) public{
+    ageArray[_index] = _age;
+  }
+}  
+```
+
+
+
 [solidity강좌](https://www.youtube.com/channel/UCuTGg-K1DY9cl8YtBKbQR9A)
